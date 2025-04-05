@@ -13,10 +13,10 @@
     --background-dark: #e5e7eb;
     --success-color: #10b981;
     --danger-color: #ef4444;
-    --border-radius: 10px;
-    --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-    --box-shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --border-radius: 8px;
+    --box-shadow: 0 8px 12px -3px rgba(0, 0, 0, 0.1), 0 3px 4px -2px rgba(0, 0, 0, 0.05);
+    --box-shadow-hover: 0 15px 20px -5px rgba(0, 0, 0, 0.1), 0 8px 8px -5px rgba(0, 0, 0, 0.04);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
     --gradient-secondary: linear-gradient(135deg, var(--secondary-dark) 0%, var(--secondary-color) 100%);
 }
@@ -64,13 +64,14 @@ img {
 /* Botones */
 .btn {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 10px 20px;
     border-radius: var(--border-radius);
     font-weight: 600;
     text-align: center;
     cursor: pointer;
     transition: var(--transition);
     border: none;
+    font-size: 0.9rem;
 }
 
 .btn.primary {
@@ -79,7 +80,7 @@ img {
     position: relative;
     overflow: hidden;
     z-index: 1;
-    transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border: 2px solid transparent;
     letter-spacing: 0.5px;
     text-transform: uppercase;
@@ -116,8 +117,8 @@ img {
 
 .btn.primary:hover {
     color: white;
-    transform: translateY(-5px);
-    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
     border-color: transparent;
 }
 
@@ -136,7 +137,8 @@ img {
     position: relative;
     overflow: hidden;
     z-index: 1;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
 }
 
 .btn.secondary::before {
@@ -155,8 +157,8 @@ img {
 
 .btn.secondary:hover {
     color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn.secondary:hover::before {
@@ -165,20 +167,27 @@ img {
 }
 
 .btn.small {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    padding: 6px 12px;
+    font-size: 0.8rem;
 }
 
 /* Header */
 header {
     background-color: var(--secondary-color);
     color: var(--text-light);
-    padding: 20px 0;
+    padding: 8px 0;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+header.scrolled {
+    padding: 4px 0;
+    background-color: rgba(17, 24, 39, 0.95);
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.2);
 }
 
 .header-content {
@@ -188,35 +197,75 @@ header {
 }
 
 .profile-info h1 {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     font-weight: 700;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
 }
 
 .profession {
     color: var(--primary-light);
-    font-size: 1rem;
+    font-size: 0.75rem;
 }
 
 nav ul {
     display: flex;
-    gap: 20px;
+    gap: 15px;
 }
 
 nav a {
     color: var(--text-light);
     font-weight: 500;
-    padding: 5px 10px;
+    padding: 4px 8px;
     border-radius: var(--border-radius);
+    font-size: 0.9rem;
 }
 
 nav a:hover {
     color: var(--primary-light);
 }
 
+/* Selector de idioma */
+.language-selector {
+    display: flex;
+    gap: 8px;
+    margin-left: 15px;
+}
+
+.language-selector a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    transition: var(--transition);
+    opacity: 0.7;
+    position: relative;
+    padding: 3px;
+}
+
+.language-selector a:hover,
+.language-selector a.active {
+    opacity: 1;
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.language-selector a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background-color: var(--primary-light);
+    border-radius: 2px;
+}
+
 /* Sección Hero */
 .hero {
-    padding: 160px 0 100px;
+    padding: 100px 0 60px;
     background: linear-gradient(135deg, var(--secondary-dark) 0%, var(--secondary-color) 100%);
     color: var(--text-light);
     position: relative;
@@ -251,13 +300,14 @@ nav a:hover {
 .hero-content {
     position: relative;
     z-index: 1;
+    padding: 130px 0 80px;
 }
 
 .hero-content {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 40px;
+    gap: 30px;
 }
 
 .hero-text {
@@ -265,22 +315,23 @@ nav a:hover {
 }
 
 .hero-text h2 {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     line-height: 1.2;
+    color: var(--text-light);
 }
 
 .hero-text h3 {
-    font-size: 1.8rem;
-    color: var(--primary-light);
-    margin-bottom: 20px;
+    font-size: 1.3rem;
+    color: var(--accent-color);
+    margin-bottom: 12px;
 }
 
 .hero-text p {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    max-width: 600px;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    max-width: 500px;
 }
 
 .highlight {
@@ -289,7 +340,7 @@ nav a:hover {
 
 .cta-buttons {
     display: flex;
-    gap: 15px;
+    gap: 12px;
 }
 
 .hero-image {
@@ -306,7 +357,7 @@ nav a:hover {
         box-shadow: 0 0 0 0 rgba(159, 122, 234, 0.7);
     }
     70% {
-        box-shadow: 0 0 0 15px rgba(159, 122, 234, 0);
+        box-shadow: 0 0 0 10px rgba(159, 122, 234, 0);
     }
     100% {
         box-shadow: 0 0 0 0 rgba(159, 122, 234, 0);
@@ -318,7 +369,7 @@ nav a:hover {
         transform: translateY(0) rotate(0deg);
     }
     50% {
-        transform: translateY(-10px) rotate(2deg);
+        transform: translateY(-8px) rotate(1deg);
     }
     100% {
         transform: translateY(0) rotate(0deg);
@@ -326,30 +377,30 @@ nav a:hover {
 }
 
 .profile-image-container {
-    width: 320px;
-    height: 320px;
+    width: 220px;
+    height: 220px;
     border-radius: 50%;
     overflow: hidden;
-    border: 6px solid var(--primary-light);
-    box-shadow: 0 0 30px rgba(159, 122, 234, 0.6), inset 0 0 15px rgba(255, 255, 255, 0.3);
+    border: 4px solid var(--primary-light);
+    box-shadow: 0 0 20px rgba(159, 122, 234, 0.6), inset 0 0 10px rgba(255, 255, 255, 0.3);
     animation: pulse 3s infinite ease-in-out, float-profile 8s infinite ease-in-out;
-    padding: 10px;
+    padding: 6px;
     background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 2;
-    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.6s ease;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), box-shadow 0.5s ease;
     position: relative;
 }
 
 .profile-image-container::before {
     content: '';
     position: absolute;
-    top: -5px;
-    left: -5px;
-    right: -5px;
-    bottom: -5px;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
     border-radius: 50%;
     background: linear-gradient(45deg, var(--primary-light), transparent, var(--primary-light), transparent);
     z-index: -1;
@@ -362,21 +413,23 @@ nav a:hover {
 }
 
 .profile-image-container:hover {
-    transform: scale(1.08) rotate(5deg);
-    box-shadow: 0 0 40px rgba(159, 122, 234, 0.9), inset 0 0 20px rgba(255, 255, 255, 0.4);
+    transform: scale(1.05) rotate(3deg);
+    box-shadow: 0 0 30px rgba(159, 122, 234, 0.9), inset 0 0 15px rgba(255, 255, 255, 0.4);
 }
 
 .profile-image {
-    width: 100%;
-    height: 100%;
+    width: 250px;
+    height: 250px;
     border-radius: 50%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.5s ease;
+    transition: transform 0.4s ease;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
 .profile-image:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 /* Contenedor de animación eliminado */
@@ -418,13 +471,13 @@ nav a:hover {
 
 /* Secciones generales */
 section {
-    padding: 100px 0;
+    padding: 70px 0;
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
     text-align: center;
-    margin-bottom: 60px;
+    margin-bottom: 40px;
     position: relative;
     color: var(--secondary-color);
 }
@@ -432,11 +485,11 @@ section {
 .section-title::after {
     content: '';
     position: absolute;
-    bottom: -15px;
+    bottom: -12px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
+    width: 60px;
+    height: 3px;
     background-color: var(--primary-color);
     border-radius: 2px;
 }
@@ -1567,18 +1620,121 @@ section {
 }
 
 @media (max-width: 768px) {
+    header {
+        padding: 8px 0;
+    }
+    
+    header.scrolled {
+        padding: 5px 0;
+    }
+    
     .header-content {
         flex-direction: column;
-        gap: 15px;
+        gap: 10px;
+    }
+    
+    .profile-info h1 {
+        font-size: 1.2rem;
+        text-align: center;
+    }
+    
+    .profession {
+        font-size: 0.8rem;
+        text-align: center;
     }
     
     nav ul {
         flex-wrap: wrap;
         justify-content: center;
+        gap: 10px;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 3px 8px;
+        font-size: 0.9rem;
+    }
+
+    
+    .hero {
+        padding: 100px 0 60px;
+    }
+    
+    .hero-text h2 {
+        font-size: 2rem;
+    }
+    
+    .hero-text h3 {
+        font-size: 1.3rem;
+    }
+    
+    .hero-text p {
+        font-size: 1rem;
+    }
+    
+    .profile-image-container {
+        width: 220px;
+        height: 220px;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    header {
+        padding: 5px 0;
+    }
+    
+    .profile-info h1 {
+        font-size: 1rem;
+    }
+    
+    .profession {
+        font-size: 0.75rem;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 2px 6px;
+        font-size: 0.85rem;
     }
     
     .hero {
-        padding: 140px 0 80px;
+        padding: 90px 0 50px;
+    }
+    
+    .hero-text h2 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-text h3 {
+        font-size: 1.1rem;
+    }
+    
+    .profile-image-container {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+    
+    .hero-text h2 {
+        font-size: 2rem;
+    }
+    
+    .hero-text h3 {
+        font-size: 1.3rem;
+    }
+    
+    .hero-text p {
+        font-size: 1rem;
+    }
+    
+    .profile-image-container {
+        width: 220px;
+        height: 220px;
+        margin-top: 20px;
     }
     
     .hero-text h2 {
@@ -1635,7 +1791,7 @@ section {
     .footer-links {
         justify-content: center;
     }
-}
+
 
 @media (max-width: 576px) {
     .profile-image-container {

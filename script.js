@@ -1,5 +1,61 @@
 // Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
+    // Cargar las traducciones
+    let currentLanguage = 'es'; // Idioma por defecto
+    
+    // Función para cambiar el idioma
+    function changeLanguage(lang) {
+        currentLanguage = lang;
+        document.documentElement.lang = lang;
+        
+        // Actualizar todos los elementos con atributo data-i18n
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach(element => {
+            const key = element.getAttribute('data-i18n');
+            if (translations[lang] && translations[lang][key]) {
+                // Si es un elemento de entrada o un botón, actualizar el valor
+                if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+                    element.placeholder = translations[lang][key];
+                } else if (element.tagName === 'BUTTON') {
+                    element.textContent = translations[lang][key];
+                } else {
+                    // Para otros elementos, actualizar el contenido HTML
+                    element.innerHTML = translations[lang][key];
+                }
+            }
+        });
+        
+        // Actualizar clases activas en los botones de idioma
+        document.querySelectorAll('.language-selector a').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.getElementById(lang + '-lang').classList.add('active');
+        
+        // Guardar preferencia en localStorage
+        localStorage.setItem('preferredLanguage', lang);
+    }
+    
+    // Configurar los botones de cambio de idioma
+    const esLangBtn = document.getElementById('es-lang');
+    const enLangBtn = document.getElementById('en-lang');
+    
+    if (esLangBtn && enLangBtn) {
+        esLangBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            changeLanguage('es');
+        });
+        
+        enLangBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            changeLanguage('en');
+        });
+    }
+    
+    // Cargar idioma preferido del usuario si existe
+    const savedLanguage = localStorage.getItem('preferredLanguage');
+    if (savedLanguage) {
+        changeLanguage(savedLanguage);
+    }
     // Efecto parallax para la sección hero
     const parallaxSection = document.querySelector('.parallax-section');
     if (parallaxSection) {
