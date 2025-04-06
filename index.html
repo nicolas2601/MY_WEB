@@ -20,16 +20,19 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container-fluid">
-                    <img src="images/logo.svg" alt="Logo NSM" class="logo" width="50" height="50" />
-                    <div class="profile-info animate__animated animate__fadeIn">
-                        <h1>Nicolás Santiago Moreno Monroy</h1>
-                        <p class="profession">Desarrollador de Software -- fullstack / Técnico en Sistemas</p>
+                    <div class="header-left-section">
+                        <img src="images/logo.svg" alt="Logo NSM" class="logo" width="50" height="50" />
+                        <div class="profile-info animate__animated animate__fadeIn">
+                            <h1>Nicolás Santiago</h1>
+                            <p class="profession">Moreno Monroy</p>
+                            <p class="subtitle">Desarrollador de Software -- fullstack / Técnico en Sistemas</p>
+                        </div>
                     </div>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-                        <ul class="navbar-nav">
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
                             <li class="nav-item"><a class="nav-link" href="#inicio" data-i18n="nav_inicio">Inicio</a></li>
                             <li class="nav-item"><a class="nav-link" href="#sobre-mi" data-i18n="nav_sobre_mi">Sobre Mí</a></li>
                             <li class="nav-item"><a class="nav-link" href="#experiencia" data-i18n="nav_experiencia">Experiencia</a></li>
@@ -53,7 +56,7 @@
             <div class="row hero-content align-items-center">
                 <div class="col-lg-6 col-md-12">
                     <div class="hero-text animate__animated animate__fadeInLeft">
-                        <h2 class="display-4">Hola, soy <span class="highlight">Nicolás Moreno</span></h2>
+                        <h2 class="display-4"><span data-i18n="hero_hola">Hola, soy</span> <span class="highlight">Nicolás Moreno</span></h2>
                         <h3 class="animate__animated animate__fadeIn animate__delay-1s" data-i18n="hero_profesion">Desarrollador de Software -- fullstack / Técnico en Sistemas</h3>
                         <p class="lead animate__animated animate__fadeIn animate__delay-2s" data-i18n="hero_especializado">Especializado en programación, diseño web y desarrollo de aplicaciones móviles</p>
                         <div class="cta-buttons animate__animated animate__fadeIn animate__delay-3s">
@@ -152,33 +155,33 @@
                     <h3 data-i18n="habilidades_programacion">Programación</h3>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <div class="skill-name">Python</div>
+                            <div class="skill-name" data-percent="90%">Python</div>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 90%"></div>
+                                <div class="skill-level" style="--width: 90%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">Java</div>
+                            <div class="skill-name" data-percent="85%">Java</div>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 85%"></div>
+                                <div class="skill-level" style="--width: 85%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">C#</div>
+                            <div class="skill-name" data-percent="80%">C#</div>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 80%"></div>
+                                <div class="skill-level" style="--width: 80%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">PHP</div>
+                            <div class="skill-name" data-percent="75%">PHP</div>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 75%"></div>
+                                <div class="skill-level" style="--width: 75%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">Kotlin</div>
+                            <div class="skill-name" data-percent="80%">Kotlin</div>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 80%"></div>
+                                <div class="skill-level" style="--width: 80%"></div>
                             </div>
                         </div>
                     </div>
@@ -187,21 +190,21 @@
                     <h3 data-i18n="habilidades_desarrollo_web">Desarrollo Web</h3>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <div class="skill-name">HTML</div>
+                            <div class="skill-name" data-percent="95%">HTML</div>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 95%"></div>
+                                <div class="skill-level" style="--width: 95%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">CSS</div>
+                            <div class="skill-name" data-percent="90%">CSS</div>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 90%"></div>
+                                <div class="skill-level" style="--width: 90%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">JavaScript</div>
+                            <div class="skill-name" data-percent="85%">JavaScript</div>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 85%"></div>
+                                <div class="skill-level" style="--width: 85%"></div>
                             </div>
                         </div>
                     </div>
@@ -210,21 +213,21 @@
                     <h3 data-i18n="habilidades_frameworks">Frameworks</h3>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <div class="skill-name">Laravel (PHP)</div>
+                            <div class="skill-name" data-percent="80%">Laravel (PHP)</div>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 80%"></div>
+                                <div class="skill-level" style="--width: 80%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">Bootstrap 5.3</div>
+                            <div class="skill-name" data-percent="85%">Bootstrap 5.3</div>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 85%"></div>
+                                <div class="skill-level" style="--width: 85%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">Jetpack Compose (Kotlin)</div>
+                            <div class="skill-name" data-percent="75%">Jetpack Compose (Kotlin)</div>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 75%"></div>
+                                <div class="skill-level" style="--width: 75%"></div>
                             </div>
                         </div>
                     </div>
@@ -233,21 +236,21 @@
                     <h3 data-i18n="habilidades_otros">Otros</h3>
                     <div class="skill-items">
                         <div class="skill-item">
-                            <div class="skill-name">MySQL</div>
+                            <div class="skill-name" data-percent="85%">MySQL</div>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 85%"></div>
+                                <div class="skill-level" style="--width: 85%"></div>
                             </div>
                         </div>
                         <div class="skill-item">
-                            <div class="skill-name">Linux (Ubuntu, Kali, Arch)</div>
+                            <div class="skill-name" data-percent="80%">Linux (Ubuntu, Kali, Arch)</div>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 80%"></div>
+                                <div class="skill-level" style="--width: 80%"></div>
                             </div>
                         </div>
                         <div class="skill-item" data-aos="fade-left" data-aos-delay="300">
-                            <div class="skill-name" data-i18n="habilidades_ingles">Inglés <span class="badge bg-primary animate__animated animate__fadeIn" data-i18n="habilidades_nivel_ingles">Intermediate</span></div>
+                            <div class="skill-name" data-i18n="habilidades_ingles" data-percent="65%">Inglés <span class="badge bg-primary animate__animated animate__fadeIn" data-i18n="habilidades_nivel_ingles">Intermediate</span></div>
                             <div class="skill-bar">
-                                <div class="skill-level" style="width: 65%"></div>
+                                <div class="skill-level" style="--width: 65%"></div>
                             </div>
                         </div>
                     </div>
@@ -387,8 +390,8 @@
 
     <section id="contacto" class="contact" data-aos="fade-up">
         <div class="container">
-            <h2 class="section-title">Contacto</h2>
-            <div class="row contact-content">
+            <h2 class="section-title" data-i18n="contacto_titulo">Contacto</h2>
+            <div class="row contact-content justify-content-center">
                 <div class="col-lg-6 col-md-12 mb-4" data-aos="fade-right" data-aos-delay="100">
                     <div class="contact-info card shadow-lg p-4 h-100">
                         <h3 class="card-title animate__animated animate__fadeIn" data-i18n="contacto_hablemos">¡Hablemos!</h3>
@@ -416,32 +419,20 @@
                 </div>
                 <div class="col-lg-6 col-md-12" data-aos="fade-left" data-aos-delay="200">
                     <div class="contact-form card shadow-lg p-4 h-100">
-                        <form id="contactForm" class="needs-validation" novalidate>
-                            <div class="mb-3">
-                                <label for="name" class="form-label" data-i18n="contacto_nombre">Nombre</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
-                                    <input type="text" class="form-control" id="name" name="name" required>
-                                    <div class="invalid-feedback" data-i18n="contacto_error_nombre">Por favor ingresa tu nombre</div>
-                                </div>
+                        <form id="contact-form">
+                            <div class="form-group">
+                                <label for="name">Nombre:</label>
+                                <input type="text" id="name" name="name" required>
                             </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                                    <input type="email" class="form-control" id="email" name="email" required>
-                                    <div class="invalid-feedback">Por favor ingresa un email válido</div>
-                                </div>
+                            <div class="form-group">
+                                <label for="email">Correo electrónico:</label>
+                                <input type="email" id="email" name="email" required>
                             </div>
-                            <div class="mb-3">
-                                <label for="message" class="form-label" data-i18n="contacto_mensaje">Mensaje</label>
-                                <div class="input-group">
-                                    <span class="input-group-text"><i class="fas fa-comment"></i></span>
-                                    <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
-                                    <div class="invalid-feedback" data-i18n="contacto_error_mensaje">Por favor ingresa tu mensaje</div>
-                                </div>
+                            <div class="form-group">
+                                <label for="message">Mensaje:</label>
+                                <textarea id="message" name="message" rows="4" required></textarea>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100 animate__animated animate__pulse animate__infinite" data-i18n="contacto_enviar">Enviar Mensaje</button>
+                            <button type="submit" class="btn primary">Enviar</button>
                         </form>
                     </div>
                 </div>
