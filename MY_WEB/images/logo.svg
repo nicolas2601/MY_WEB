@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6522a4"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Círculo base con gradiente -->
+  <circle cx="100" cy="100" r="90" fill="url(#logoGradient)" filter="url(#glow)">
+    <animate attributeName="opacity" values="0.8;1;0.8" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Anillo decorativo exterior -->
+  <circle cx="100" cy="100" r="85" fill="none" stroke="#d8b4fe" stroke-width="2" opacity="0.6">
+    <animate attributeName="stroke-dasharray" from="0,1000" to="1000,0" dur="10s" repeatCount="indefinite"/>
+    <animate attributeName="stroke-width" values="2;3;2" dur="3s" repeatCount="indefinite"/>
+  </circle>
+  
+  <!-- Iniciales NSM -->
+  <text x="100" y="115" font-family="'Segoe UI', sans-serif" font-size="45" font-weight="bold" fill="#ffffff" text-anchor="middle" filter="url(#glow)">
+    NSM
+    <animate attributeName="opacity" values="0.9;1;0.9" dur="2s" repeatCount="indefinite"/>
+  </text>
+  
+  <!-- Detalles decorativos -->
+  <path d="M100,30 L100,40 M30,100 L40,100 M100,170 L100,160 M170,100 L160,100" stroke="#ffffff" stroke-width="3" opacity="0.6">
+    <animate attributeName="opacity" values="0.4;0.8;0.4" dur="2s" repeatCount="indefinite"/>
+  </path>
+</svg>
