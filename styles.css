@@ -1712,25 +1712,8 @@ section {
     position: relative;
 }
 
-.footer-waves {
-    position: absolute;
-    top: -100px;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-}
+/* Estilos de footer ajustados sin olas */
 
-.footer-waves svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 100px;
-}
-
-.footer-waves .wave-path {
-    fill: var(--secondary-dark);
-}
 
 .footer-content {
     display: flex;
@@ -1898,12 +1881,39 @@ section {
         padding: 5px 0;
     }
     
+    /* Ajustes para que el navbar y header estén en una sola línea */
+    .header-left-section {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+    }
+    
+    .navbar .logo {
+        width: 35px;
+        height: 35px;
+        margin-right: 5px;
+    }
+    
     .profile-info h1 {
-        font-size: 1rem;
+        font-size: 0.9rem;
+        margin-bottom: 0;
+        line-height: 1;
     }
     
     .profession {
-        font-size: 0.75rem;
+        font-size: 0.7rem;
+        margin-bottom: 0;
+        line-height: 1;
+    }
+    
+    .subtitle {
+        display: none; /* Ocultar subtítulo en móviles para ahorrar espacio */
+    }
+    
+    /* Ajustar el navbar para que ocupe menos espacio */
+    .navbar-toggler {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.8rem;
     }
     
     .navbar-nav .nav-link {
@@ -2043,7 +2053,31 @@ section {
         font-size: 1.3rem;
     }
     
+    /* Ajuste para que la sección de contacto sea más ancha en móviles */
     .contact-content {
         grid-template-columns: 1fr;
+        padding: 20px 10px;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    /* Ajuste para que los elementos del formulario de contacto sean más anchos */
+    .contact-form.card,
+    .contact-info.card {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+    
+    /* Ajuste para que los inputs del formulario sean más anchos */
+    .contact-content input,
+    .contact-content textarea {
+        width: 100%;
+    }
+    
+    /* Ajuste para que el botón de enviar sea más ancho */
+    .contact-content button {
+        width: 100%;
+        max-width: 100%;
     }
 }
