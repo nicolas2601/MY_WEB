@@ -137,13 +137,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Cambiar estilo del header al hacer scroll
     const header = document.querySelector('header');
+    let lastScrollTop = 0;
     
     function toggleHeaderStyle() {
-        if(window.scrollY > 100) {
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        
+        // Añadir clase scrolled cuando se hace scroll hacia abajo
+        if(scrollTop > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
+        
+        // Ocultar/mostrar header según dirección del scroll
+        if (scrollTop > lastScrollTop && scrollTop > 200) {
+            // Scroll hacia abajo y más allá de 200px
+            header.style.transform = 'translateY(-100%)';
+        } else {
+            // Scroll hacia arriba o en la parte superior
+            header.style.transform = 'translateY(0)';
+        }
+        
+        lastScrollTop = scrollTop;
     }
 
     // Ejecutar el cambio de estilo al cargar la página y al hacer scroll
