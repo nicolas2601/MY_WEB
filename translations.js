@@ -61,6 +61,8 @@ const translations = {
         proyecto2_desc: "Sistema desarrollado en Java para la optimización de tiempos y recursos en universidades.",
         proyecto3_titulo: "Juego de Precisión tipo 'Aimlabs'",
         proyecto3_desc: "Creación de un juego tipo 'Aimlabs' en Python para mejorar la precisión y reflejos.",
+        proyecto4_titulo: "Portafolio Profesional",
+        proyecto4_desc: "Desarrollo de un portafolio web profesional utilizando HTML, CSS y JavaScript con diseño responsivo y animaciones interactivas.",
         ver_demo: "Ver Demo",
         ver_codigo: "Código",
         
@@ -157,6 +159,8 @@ const translations = {
         proyecto2_desc: "System developed in Java for the optimization of time and resources in universities.",
         proyecto3_titulo: "'Aimlabs' type Precision Game",
         proyecto3_desc: "Creation of an 'Aimlabs' type game in Python to improve precision and reflexes.",
+        proyecto4_titulo: "Professional Portfolio",
+        proyecto4_desc: "Development of a professional web portfolio using HTML, CSS and JavaScript with responsive design and interactive animations.",
         ver_demo: "View Demo",
         ver_codigo: "Code",
         
