@@ -2,24 +2,35 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Usar la variable global de idioma definida en translations.js
     
+    // Declarar typeInterval y currentLanguage en un alcance accesible
+    let typeInterval = null;
+    let currentLanguage = 'es'; // Establecer idioma predeterminado
+    
     // Función para cambiar el idioma
     function changeLanguage(lang) {
+        // Limpiar la animación de escritura existente si está en ejecución
+        if (typeInterval) {
+            clearInterval(typeInterval);
+            typeInterval = null; // Restablecer ID de intervalo
+        }
+    
         currentLanguage = lang;
         document.documentElement.lang = lang;
-        
+    
         // Actualizar todos los elementos con atributo data-i18n
         const elements = document.querySelectorAll('[data-i18n]');
         elements.forEach(element => {
             const key = element.getAttribute('data-i18n');
             if (translations[lang] && translations[lang][key]) {
+                const translatedText = translations[lang][key];
                 // Si es un elemento de entrada o un botón, actualizar el valor
                 if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-                    element.placeholder = translations[lang][key];
+                    element.placeholder = translatedText;
                 } else if (element.tagName === 'BUTTON') {
-                    element.textContent = translations[lang][key];
+                    element.textContent = translatedText;
                 } else {
                     // Para otros elementos, actualizar el contenido HTML
-                    element.innerHTML = translations[lang][key];
+                    element.innerHTML = translatedText;
                 }
             }
         });
@@ -29,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
             btn.classList.remove('active');
         });
         document.getElementById(lang + '-lang').classList.add('active');
-        
+    
         // Guardar preferencia en localStorage
         localStorage.setItem('preferredLanguage', lang);
     }
@@ -53,7 +64,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // Cargar idioma preferido del usuario si existe
     const savedLanguage = localStorage.getItem('preferredLanguage');
     if (savedLanguage) {
-        changeLanguage(savedLanguage);
+        changeLanguage(savedLanguage); // Esto ahora también activará initTypeEffect para el idioma guardado
+    } else {
+        changeLanguage(currentLanguage); // Establecer idioma predeterminado y activar initTypeEffect
     }
     // Efecto parallax para la sección hero
     const parallaxSection = document.querySelector('.parallax-section');
@@ -266,26 +279,40 @@ document.addEventListener('DOMContentLoaded', function() {
     createParticles();
     
     // Efecto de typing para el texto del hero
-    const initTypeEffect = () => {
+    const initTypeEffect = (lang) => {
+        // Limpiar cualquier intervalo anterior por si acaso
+        if (typeInterval) {
+            clearInterval(typeInterval);
+            typeInterval = null;
+        }
+    
         const element = document.querySelector('.hero-text h3');
         if (!element) return;
-        
-        const text = element.textContent;
-        element.textContent = '';
-        element.classList.remove('animate__fadeIn');
-        
+    
+        // Obtener el texto directamente de las traducciones basado en el idioma actual
+        const text = translations[lang]['hero_profesion'];
+        if (!text) {
+            console.error(`Clave de traducción 'hero_profesion' no encontrada para el idioma '${lang}'`);
+            element.textContent = "Texto predeterminado - Verificar traducciones"; // Fallback
+            return;
+        }
+    
+        element.textContent = ''; // Asegurarse de que esté vacío antes de empezar
+    
         let i = 0;
-        const typeInterval = setInterval(() => {
+        typeInterval = setInterval(() => { // Asignar al typeInterval accesible
             if (i < text.length) {
                 element.textContent += text.charAt(i);
                 i++;
             } else {
                 clearInterval(typeInterval);
+                typeInterval = null; // Restablecer ID de intervalo cuando termine
             }
-        }, 50);
+        }, 50); // Velocidad de escritura
     };
     
-    setTimeout(initTypeEffect, 1000);
+    // Eliminar la llamada antigua a setTimeout para initTypeEffect
+    // setTimeout(initTypeEffect, 1000); // ESTA LÍNEA DEBE SER ELIMINADA SI EXISTE
     
     // Añadir estilos CSS adicionales para las animaciones
     const style = document.createElement('style');

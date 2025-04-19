@@ -210,3 +210,45 @@ document.addEventListener('DOMContentLoaded', function() {
         return "Lo siento, no entendí eso. Intenta con palabras como: hola, perfil, portafolio, cv, contacto, experiencia, habilidades, educación, proyectos, idiomas, intereses.";
     }
 });
+
+
+function scrollToBottom() {
+    const messageContainer = document.querySelector('.chatbot-body');
+    messageContainer.scrollTop = messageContainer.scrollHeight;
+}
+
+// Ejecutar al añadir nuevo mensaje
+function addMessage(message, isUser) {
+    const messageElement = document.createElement('div');
+    messageElement.classList.add('message', sender + '-message');
+    messageElement.innerHTML = `
+        <div class="message-content">
+            <p>${message}</p>
+        </div>
+    `;
+
+    chatbotMessages.appendChild(messageElement);
+    chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+
+    // Animar la entrada del mensaje
+    anime({
+        targets: messageElement,
+        translateY: [20, 0],
+        opacity: [0, 1],
+        duration: 500,
+        easing: 'easeOutExpo'
+    });
+    scrollToBottom();
+}
+
+// Ejecutar al cargar el chat
+document.addEventListener('DOMContentLoaded', function() {
+    scrollToBottom();
+    setupMutationObserver();
+});
+
+function setupMutationObserver() {
+    const observer = new MutationObserver(scrollToBottom);
+    const config = { childList: true };
+    observer.observe(document.querySelector('.chatbot-body'), config);
+}

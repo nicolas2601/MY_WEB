@@ -13,7 +13,7 @@ window.translations = {
         
         // Hero section
         hero_hola: "Hola, soy",
-        hero_profesion: "Desarrollador de Software -- fullstack / Técnico en Sistemas",
+        hero_profesion: "Desarrollador de Software — Fullstack / Técnico en Sistemas",
         hero_especializado: "Especializado en programación, diseño web y desarrollo de aplicaciones móviles",
         hero_ver_proyectos: "Ver Proyectos",
         hero_contactar: "Contactar",
@@ -111,7 +111,7 @@ window.translations = {
         
         // Hero section
         hero_hola: "Hello, I'm",
-        hero_profesion: "Software Developer -- fullstack / Systems Technician",
+        hero_profesion: "Software Developer — Fullstack / Systems Technician",
         hero_especializado: "Specialized in programming, web design and mobile application development",
         hero_ver_proyectos: "View Projects",
         hero_contactar: "Contact Me",
