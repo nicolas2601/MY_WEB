@@ -1,24 +1,46 @@
-/* Variables globales */
+/* Variables globales - Nueva paleta moderna */
 :root {
-    --primary-color: #6522a4; /* Morado más vibrante */
-    --primary-light: #a855f7;
-    --primary-dark: #7e22ce;
-    --secondary-color: #111827; /* Negro más profundo */
-    --secondary-light: #374151;
-    --secondary-dark: #0f172a;
-    --accent-color: #d8b4fe; /* Acento morado claro */
-    --text-light: #f9fafb;
-    --text-dark: #1f2937;
-    --background-light: #f3f4f6;
-    --background-dark: #e5e7eb;
+    /* Colores principales */
+    --primary-color: #00BFFF; /* Azul eléctrico */
+    --primary-light: #33D6FF;
+    --primary-dark: #0099CC;
+    --secondary-color: #1E1E1E; /* Fondo oscuro - aclarado */
+    --secondary-light: #2A2A2A;
+    --secondary-dark: #151515;
+    --accent-color: #39FF14; /* Verde neón */
+    --accent-light: #5FFF4D;
+    --accent-dark: #2BCC0D;
+    
+    /* Textos */
+    --text-light: #FFFFFF;
+    --text-dark: #121212;
+    --text-muted: #B0B7C3;
+    
+    /* Fondos */
+    --background-dark: #1A1A1A; /* Aclarado para mejor visibilidad */
+    --background-darker: #151515;
+    --background-light: #2A2A2A;
+    --background-card: #252525;
+    
+    /* Estados */
     --success-color: #10b981;
     --danger-color: #ef4444;
+    --warning-color: #f59e0b;
+    --info-color: #3b82f6;
+    
+    /* Elementos UI */
     --border-radius: 8px;
-    --box-shadow: 0 8px 12px -3px rgba(0, 0, 0, 0.1), 0 3px 4px -2px rgba(0, 0, 0, 0.05);
-    --box-shadow-hover: 0 15px 20px -5px rgba(0, 0, 0, 0.1), 0 8px 8px -5px rgba(0, 0, 0, 0.04);
+    --border-radius-lg: 12px;
+    --border-radius-sm: 4px;
+    --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    --box-shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.4);
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Gradientes */
     --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
     --gradient-secondary: linear-gradient(135deg, var(--secondary-dark) 0%, var(--secondary-color) 100%);
+    --gradient-accent: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-dark) 100%);
+    --gradient-blue-green: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-color) 100%);
 }
 
 /* Reset y estilos base */
@@ -33,10 +55,48 @@ html {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Raleway', sans-serif;
     line-height: 1.6;
-    color: var(--text-dark);
-    background-color: var(--background-light);
+    color: var(--text-light);
+    background-color: var(--background-dark);
+    overflow-x: hidden;
+}
+
+/* Tipografía moderna */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+p, li, a, span, input, textarea, button {
+    font-family: 'Inter', sans-serif;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    color: #ffffff; /* Cambiado a blanco */
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: var(--gradient-blue-green);
+    border-radius: 2px;
+}
+
+/* Clase para el tema moderno */
+.modern-theme {
+    background-color: var(--background-dark);
+    color: var(--text-light);
 }
 
 a {
@@ -64,26 +124,26 @@ img {
 /* Botones */
 .btn {
     display: inline-block;
-    padding: 10px 20px;
+    padding: 12px 24px;
     border-radius: var(--border-radius);
     font-weight: 600;
     text-align: center;
     cursor: pointer;
     transition: var(--transition);
     border: none;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase;
+    z-index: 1;
 }
 
 .btn.primary {
-    background-color: var(--primary-color);
+    background: var(--primary-color);
     color: white;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     border: 2px solid transparent;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
     font-weight: 700;
 }
 
@@ -94,10 +154,11 @@ img {
     left: 0;
     width: 100%;
     height: 100%;
-    background: var(--primary-dark);
+    background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
     z-index: -1;
     transform: scaleX(0);
     transform-origin: right;
+    transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
     transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -173,15 +234,18 @@ img {
 
 /* Header */
 header {
-    background-color: var(--secondary-color);
+    background-color: rgba(18, 18, 18, 0.95);
     color: var(--text-light);
-    padding: 15px 0;
-    position: fixed; /* Cambiado a fixed para mejor comportamiento */
+    padding: 20px 0;
+    position: fixed;
     width: 100%;
     top: 0;
+    left: 0;
     z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease, transform 0.4s ease-in-out; /* Mejorada la transición */
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 header.scrolled {
@@ -318,6 +382,23 @@ nav a:hover {
     color: var(--primary-light);
 }
 
+/* Estilos específicos para el botón de descarga de CV */
+.download-cv {
+    border-color: var(--primary-color); /* Mantener el borde outline */
+    color: var(--primary-color); /* Color del texto */
+    background-color: rgba(37, 7, 66, 0.936); /* Fondo sutil para destacar */
+    padding: 12px 25px; /* Aumentar padding */
+    font-weight: 600; /* Hacer texto más grueso */
+    transition: all 0.3s ease;
+}
+
+.download-cv:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(168, 85, 247, 0.3);
+}
+
 /* Selector de idioma */
 .language-selector {
     display: flex;
@@ -368,6 +449,27 @@ nav a:hover {
     margin-top: 60px; /* Añadido margen superior para compensar el header fijo */
 }
 
+/* Contenedor de partículas */
+.particles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/* Estilo de las partículas */
+.particle {
+    position: absolute;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    box-shadow: 0 0 10px 2px rgba(0, 191, 255, 0.3);
+    pointer-events: none;
+    z-index: 1;
+}
+
 .hero::before {
     content: '';
     position: absolute;
@@ -375,6 +477,7 @@ nav a:hover {
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 0;
     background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cpath d="M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7 3.134 7 3.134 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z" fill="%23a855f7" fill-opacity="0.1" fill-rule="evenodd"/%3E%3C/svg%3E');
     opacity: 0.5;
     z-index: 0;
@@ -623,7 +726,7 @@ section {
     text-align: center;
     margin-bottom: 40px;
     position: relative;
-    color: var(--secondary-color);
+    color: #ffffff; /* Cambiado a blanco */
 }
 
 .section-title::after {
@@ -1431,7 +1534,7 @@ section {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 20 px;
 }
 
 .project-tech span {
@@ -1500,8 +1603,19 @@ section {
 
 .project-links {
     display: flex;
-    gap: 15px;
+    justify-content: flex-start; /* Alinea los botones a la izquierda */
+    align-items: center; /* Alinea verticalmente los botones */
+    gap: 8px; /* Reduce el espacio entre botones */
     margin-top: auto;
+    flex-wrap: nowrap; /* Evita que los botones se envuelvan */
+}
+
+.project-links a, .project-links button {
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    white-space: nowrap;
+    border-radius: 15px;
+    transition: all 0.3s ease;
 }
 
 .card-footer {
@@ -1514,7 +1628,7 @@ section {
 /* Sección de Intereses */
 .interests {
     padding: 100px 0;
-    background: white;
+    background: rgba(0, 0, 0, 0.29);
     color: var(--text-dark);
 }
 

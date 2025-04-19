@@ -1,7 +1,6 @@
 // Esperar a que el DOM esté completamente cargado
 document.addEventListener('DOMContentLoaded', function() {
-    // Cargar las traducciones
-    let currentLanguage = 'es'; // Idioma por defecto
+    // Usar la variable global de idioma definida en translations.js
     
     // Función para cambiar el idioma
     function changeLanguage(lang) {
@@ -362,22 +361,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
-// Función para enviar correo electrónico
-function sendEmail() {
-    emailjs.send("service_id", "template_id", {
-        from_name: document.getElementById('contacto_nombre').value,
-        message: document.getElementById('contacto_mensaje').value,
-        reply_to: document.getElementById('contacto_email').value
-    }).then(function(response) {
-        console.log('SUCCESS!', response.status, response.text);
-    }, function(error) {
-        console.log('FAILED...', error);
-    });
-}
-
-// Evento para el envío del formulario
-const contactForm = document.getElementById('contact-form');
-contactForm.addEventListener('submit', function(event) {
-    event.preventDefault(); // Evitar el envío por defecto
-    sendEmail(); // Llamar a la función para enviar el correo
-});
+// La funcionalidad de envío de correo se ha movido a contact.js

@@ -12,10 +12,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <!-- AOS - Animate On Scroll -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Google Fonts - Tipografías modernas -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-icons@0.171.0/dist/umd/lucide.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Nuevos estilos -->
+    <link rel="stylesheet" href="new-styles.css">
+    <!-- Anime.js para animaciones avanzadas -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <!-- EmailJS para el formulario de contacto -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- Scripts personalizados -->
+    <script src="animations.js" defer></script>
+    <script src="particles.js" defer></script>
+    <script src="contact.js" defer></script>
+    <script src="chatbot.js" defer></script>
+    <script src="translations.js" defer></script>
+    <script src="skills-animations.js" defer></script>
+    <!-- Estilos del chatbot -->
+    <link rel="stylesheet" href="chatbot.css">
 </head>
-<body>
+<body class="modern-theme">
     <header>
         <div class="container">
             <nav class="navbar navbar-expand-lg navbar-dark">
@@ -52,27 +71,41 @@
     </header>
 
     <section id="inicio" class="hero parallax-section">
-        <div class="container">
+        <div class="particles-container"></div>
+        <div class="container" style="position: relative; z-index: 2;">
             <div class="row hero-content align-items-center">
                 <div class="col-lg-6 col-md-12">
-                    <div class="hero-text animate__animated animate__fadeInLeft">
+                    <div class="hero-text animate-on-scroll" data-animation="fadeInLeft">
                         <h2 class="display-4"><span data-i18n="hero_hola">Hola, soy</span> <span class="highlight">Nicolás Moreno</span></h2>
-                        <h3 class="animate__animated animate__fadeIn animate__delay-1s" data-i18n="hero_profesion">Desarrollador de Software -- fullstack / Técnico en Sistemas</h3>
-                        <p class="lead animate__animated animate__fadeIn animate__delay-2s" data-i18n="hero_especializado">Especializado en programación, diseño web y desarrollo de aplicaciones móviles</p>
-                        <div class="cta-buttons animate__animated animate__fadeIn animate__delay-3s">
+                        <h3 class="typing-text" data-i18n="hero_profesion">Desarrollador de Software -- fullstack / Técnico en Sistemas</h3>
+                        <p class="lead animate-on-scroll" data-animation="fadeIn" data-delay="300" data-i18n="hero_especializado">Especializado en programación, diseño web y desarrollo de aplicaciones móviles</p>
+                        <div class="cta-buttons animate-on-scroll" data-animation="fadeIn" data-delay="600">
                             <a href="#proyectos" class="btn primary btn-lg" data-i18n="hero_ver_proyectos">Ver Proyectos</a>
                             <a href="#contacto" class="btn secondary btn-lg" data-i18n="hero_contactar">Contactar</a>
+                            <a href="CV_Nicolas_Moreno_01.docx" class="btn outline btn-lg download-cv" download><i class="fas fa-download me-2"></i> <span data-i18n="hero_descargar_cv">Descargar CV</span></a>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12 text-center">
-                    <div class="hero-image animate__animated animate__fadeInRight">
+                    <div class="hero-image animate-on-scroll" data-animation="fadeInRight" data-delay="300">
                         <div class="profile-image-container">
                             <img src="images/Perfil.jpg" alt="Nicolás Moreno" class="profile-image img-fluid">
                         </div>
-                        <!-- Contenedor de animación eliminado -->
-                        <!-- La animación épica ha sido eliminada para evitar que tape la imagen de perfil -->
+                        <div class="hero-shapes">
+                            <div class="shape shape-1"></div>
+                            <div class="shape shape-2"></div>
+                            <div class="shape shape-3"></div>
+                            <div class="shape shape-4"></div>
+                        </div>
                     </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div class="arrow-scroll">
+                    <span></span>
                 </div>
             </div>
         </div>
@@ -91,19 +124,29 @@
     <section id="experiencia" class="experience">
         <div class="container">
             <h2 class="section-title" data-i18n="experiencia_titulo">Experiencia Profesional</h2>
-            <div class="timeline">
-                <div class="timeline-item animate__animated animate__fadeInUp">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Programador Web Junior</h3>
-                        <h4>Accasoft ERP</h4>
-                        <p class="period" data-i18n="experiencia_periodo">Junio 2023 - Junio 2024</p>
-                        <ul>
-                            <li>Desarrollo de páginas web utilizando HTML, CSS y JavaScript.</li>
-                            <li>Programación en Python, Java y C#.</li>
-                            <li>Gestión de bases de datos MySQL y phpMyAdmin.</li>
-                            <li>Implementación de estrategias publicitarias en línea en colaboración con el área de marketing digital.</li>
-                        </ul>
+            <div class="row experience-cards">
+                <div class="col-lg-12 mb-4" data-aos="fade-up">
+                    <div class="experience-card card shadow-lg h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="experience-icon">
+                                    <i class="fas fa-code fa-2x text-primary"></i>
+                                </div>
+                                <div class="ms-3">
+                                    <h3 class="card-title mb-0">Programador Web Junior</h3>
+                                    <h4 class="company-name">Accasoft ERP</h4>
+                                    <p class="period badge bg-primary" data-i18n="experiencia_periodo">Junio 2023 - Junio 2024</p>
+                                </div>
+                            </div>
+                            <div class="experience-details">
+                                <ul class="feature-list">
+                                    <li><i class="fas fa-check-circle text-success me-2"></i>Desarrollo de páginas web utilizando HTML, CSS y JavaScript.</li>
+                                    <li><i class="fas fa-check-circle text-success me-2"></i>Programación en Python, Java y C#.</li>
+                                    <li><i class="fas fa-check-circle text-success me-2"></i>Gestión de bases de datos MySQL y phpMyAdmin.</li>
+                                    <li><i class="fas fa-check-circle text-success me-2"></i>Implementación de estrategias publicitarias en línea en colaboración con el área de marketing digital.</li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -113,29 +156,41 @@
     <section id="educacion" class="education">
         <div class="container">
             <h2 class="section-title" data-i18n="educacion_titulo">Educación</h2>
-            <div class="timeline">
-                <div class="timeline-item animate__animated animate__fadeInUp">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 data-i18n="educacion1_titulo">Estudiante de Ingeniería de Sistemas</h3>
-                        <h4 data-i18n="educacion1_institucion">Universidad Autónoma de Bucaramanga</h4>
-                        <p class="period" data-i18n="educacion1_periodo">2023 - en curso</p>
+            <div class="row education-cards">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="education-card card shadow-lg h-100">
+                        <div class="card-body">
+                            <div class="education-icon mb-3">
+                                <i class="fas fa-university fa-2x text-primary"></i>
+                            </div>
+                            <h3 class="card-title" data-i18n="educacion1_titulo">Estudiante de Ingeniería de Sistemas</h3>
+                            <h4 class="institution-name" data-i18n="educacion1_institucion">Universidad Autónoma de Bucaramanga</h4>
+                            <p class="period badge bg-primary" data-i18n="educacion1_periodo">2023 - en curso</p>
+                        </div>
                     </div>
                 </div>
-                <div class="timeline-item animate__animated animate__fadeInUp" data-delay="0.3s">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 data-i18n="educacion2_titulo">Graduado Bachiller Técnico en Sistemas</h3>
-                        <h4 data-i18n="educacion2_institucion">Instituto Técnico Dámaso Zapata</h4>
-                        <p class="period" data-i18n="educacion2_periodo">2022</p>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="education-card card shadow-lg h-100">
+                        <div class="card-body">
+                            <div class="education-icon mb-3">
+                                <i class="fas fa-graduation-cap fa-2x text-primary"></i>
+                            </div>
+                            <h3 class="card-title" data-i18n="educacion2_titulo">Graduado Bachiller Técnico en Sistemas</h3>
+                            <h4 class="institution-name" data-i18n="educacion2_institucion">Instituto Técnico Dámaso Zapata</h4>
+                            <p class="period badge bg-primary" data-i18n="educacion2_periodo">2022</p>
+                        </div>
                     </div>
                 </div>
-                <div class="timeline-item animate__animated animate__fadeInUp" data-delay="0.6s">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3 data-i18n="educacion3_titulo">Programming Essentials in Python</h3>
-                        <h4 data-i18n="educacion3_institucion">Cisco Networking Academy</h4>
-                        <p class="period" data-i18n="educacion3_periodo">22 de noviembre de 2023</p>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="education-card card shadow-lg h-100">
+                        <div class="card-body">
+                            <div class="education-icon mb-3">
+                                <i class="fab fa-python fa-2x text-primary"></i>
+                            </div>
+                            <h3 class="card-title" data-i18n="educacion3_titulo">Programming Essentials in Python</h3>
+                            <h4 class="institution-name" data-i18n="educacion3_institucion">Cisco Networking Academy</h4>
+                            <p class="period badge bg-primary" data-i18n="educacion3_periodo">22 de noviembre de 2023</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -145,108 +200,137 @@
     <section id="habilidades" class="skills">
         <div class="container">
             <h2 class="section-title" data-i18n="habilidades_titulo">Habilidades Técnicas</h2>
-            <div class="skills-container">
-                <div class="skill-category animate__animated animate__fadeInUp">
-                    <h3 data-i18n="habilidades_programacion">Programación</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-name" data-percent="90%">Python</div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="--width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name" data-percent="85%">Java</div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="--width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name" data-percent="80%">C#</div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="--width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name" data-percent="75%">PHP</div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="--width: 75%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name" data-percent="80%">Kotlin</div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="--width: 80%"></div>
-                            </div>
+            <div class="row skills-grid">
+                <!-- Programación -->
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up">
+                    <div class="skill-card card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" class="skill-icon">
+                            <h5 class="skill-name mt-2">Python</h5>
+                            <div class="skill-level-indicator" data-level="90"></div>
                         </div>
                     </div>
                 </div>
-                <div class="skill-category animate__animated animate__fadeInUp" data-delay="0.3s">
-                    <h3 data-i18n="habilidades_desarrollo_web">Desarrollo Web</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-name" data-percent="95%">HTML</div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="--width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name" data-percent="90%">CSS</div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="--width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name" data-percent="85%">JavaScript</div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="--width: 85%"></div>
-                            </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="50">
+                    <div class="skill-card card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" class="skill-icon">
+                            <h5 class="skill-name mt-2">Java</h5>
+                            <div class="skill-level-indicator" data-level="85"></div>
                         </div>
                     </div>
                 </div>
-                <div class="skill-category animate__animated animate__fadeInUp" data-delay="0.6s">
-                    <h3 data-i18n="habilidades_frameworks">Frameworks</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-name" data-percent="80%">Laravel (PHP)</div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="--width: 80%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name" data-percent="85%">Bootstrap 5.3</div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="--width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name" data-percent="75%">Jetpack Compose (Kotlin)</div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="--width: 75%"></div>
-                            </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="skill-card card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" class="skill-icon">
+                            <h5 class="skill-name mt-2">C#</h5>
+                            <div class="skill-level-indicator" data-level="80"></div>
                         </div>
                     </div>
                 </div>
-                <div class="skill-category animate__animated animate__fadeInUp" data-delay="0.9s">
-                    <h3 data-i18n="habilidades_otros">Otros</h3>
-                    <div class="skill-items">
-                        <div class="skill-item">
-                            <div class="skill-name" data-percent="85%">MySQL</div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="--width: 85%"></div>
-                            </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="150">
+                    <div class="skill-card card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" class="skill-icon">
+                            <h5 class="skill-name mt-2">PHP</h5>
+                            <div class="skill-level-indicator" data-level="75"></div>
                         </div>
-                        <div class="skill-item">
-                            <div class="skill-name" data-percent="80%">Linux (Ubuntu, Kali, Arch)</div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="--width: 80%"></div>
-                            </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="skill-card card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" alt="Kotlin" class="skill-icon">
+                            <h5 class="skill-name mt-2">Kotlin</h5>
+                            <div class="skill-level-indicator" data-level="80"></div>
                         </div>
-                        <div class="skill-item" data-aos="fade-left" data-aos-delay="300">
-                            <div class="skill-name" data-i18n="habilidades_ingles" data-percent="65%">Inglés <span class="badge bg-primary animate__animated animate__fadeIn" data-i18n="habilidades_nivel_ingles">Intermediate</span></div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="--width: 65%"></div>
-                            </div>
+                    </div>
+                </div>
+
+                <!-- Desarrollo Web -->
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="250">
+                    <div class="skill-card card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" class="skill-icon">
+                            <h5 class="skill-name mt-2">HTML5</h5>
+                            <div class="skill-level-indicator" data-level="95"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="skill-card card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" class="skill-icon">
+                            <h5 class="skill-name mt-2">CSS3</h5>
+                            <div class="skill-level-indicator" data-level="90"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="350">
+                    <div class="skill-card card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" class="skill-icon">
+                            <h5 class="skill-name mt-2">JavaScript</h5>
+                            <div class="skill-level-indicator" data-level="85"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Frameworks -->
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+                    <div class="skill-card card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <img src="
+                            https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMflgfG-YrccdU8PCoU8Oao5-SQ34UxWnYow&s" alt="Laravel" class="skill-icon">
+                            <h5 class="skill-name mt-2">Laravel</h5>
+                            <div class="skill-level-indicator" data-level="80"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="450">
+                    <div class="skill-card card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" class="skill-icon">
+                            <h5 class="skill-name mt-2">Bootstrap</h5>
+                            <div class="skill-level-indicator" data-level="85"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="500">
+                    <div class="skill-card card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" alt="Android" class="skill-icon">
+                            <h5 class="skill-name mt-2">Jetpack Compose</h5>
+                            <div class="skill-level-indicator" data-level="75"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Otros -->
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="550">
+                    <div class="skill-card card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" class="skill-icon">
+                            <h5 class="skill-name mt-2">MySQL</h5>
+                            <div class="skill-level-indicator" data-level="85"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="600">
+                    <div class="skill-card card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" class="skill-icon">
+                            <h5 class="skill-name mt-2">Linux</h5>
+                            <div class="skill-level-indicator" data-level="80"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4" data-aos="fade-up" data-aos-delay="650">
+                    <div class="skill-card card h-100 shadow-sm">
+                        <div class="card-body text-center">
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" class="skill-icon">
+                            <h5 class="skill-name mt-2">GitHub</h5>
                         </div>
                     </div>
                 </div>
@@ -259,7 +343,7 @@
             <h2 class="section-title" data-i18n="proyectos_titulo">Proyectos Destacados</h2>
             <div class="projects-grid">
                 <div class="project-item" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="card project-card h-100 shadow-lg">
+                    <div class="card project-card h-100 shadow-lg" data-bs-toggle="modal" data-bs-target="#projectModal1">
                         <div class="project-image card-img-top">
                             <!-- Carrusel para las imágenes de mindfulness -->
                             <div id="mindfulnessCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -298,14 +382,14 @@
                         </div>
                         <div class="card-footer bg-transparent border-0">
                             <div class="project-links">
-                                <a href="#" class="btn btn-primary btn-sm">Ver Demo</a>
                                 <a href="https://github.com/nicolas2601/yourJourney" class="btn btn-outline-primary btn-sm"><i class="fab fa-github me-1"></i><span data-i18n="ver_codigo">Código</span></a>
+                                <button class="btn btn-outline-info btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#projectModal1"><i class="fas fa-info-circle me-1"></i><span>Detalles</span></button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="project-item" data-aos="zoom-in" data-aos-delay="150">
-                    <div class="card project-card h-100 shadow-lg">
+                    <div class="card project-card h-100 shadow-lg" data-bs-toggle="modal" data-bs-target="#projectModal2">
                         <div class="project-image card-img-top">
                             <img src="images/Portafolio.jpg" alt="Portafolio Profesional" class="project-img">
                             <div class="project-overlay">
@@ -324,14 +408,14 @@
                         </div>
                         <div class="card-footer bg-transparent border-0">
                             <div class="project-links">
-                                <a href="#" class="btn btn-primary btn-sm animate__animated animate__pulse animate__infinite">Ver Demo</a>
                                 <a href="https://github.com/nicolas2601/MY_WEB" class="btn btn-outline-primary btn-sm"><i class="fab fa-github me-1"></i><span data-i18n="ver_codigo">Código</span></a>
+                                <button class="btn btn-outline-info btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#projectModal2"><i class="fas fa-info-circle me-1"></i><span>Detalles</span></button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="project-item" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="card project-card h-100 shadow-lg">
+                    <div class="card project-card h-100 shadow-lg" data-bs-toggle="modal" data-bs-target="#projectModal3">
                         <div class="project-image card-img-top">
                             <img src="images/Java_Horas libres.jpg" alt="Gestión de Horas Libres" class="project-img">
                             <div class="project-overlay">
@@ -349,14 +433,14 @@
                         </div>
                         <div class="card-footer bg-transparent border-0">
                             <div class="project-links">
-                                <a href="#" class="btn btn-primary btn-sm">Ver Demo</a>
                                 <a href="https://github.com/nicolas2601/HorasLibresUnab" class="btn btn-outline-primary btn-sm"><i class="fab fa-github me-1"></i>Código</a>
+                                <button class="btn btn-outline-info btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#projectModal3"><i class="fas fa-info-circle me-1"></i><span>Detalles</span></button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="project-item" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="card project-card h-100 shadow-lg">
+                    <div class="card project-card h-100 shadow-lg" data-bs-toggle="modal" data-bs-target="#projectModal4">
                         <div class="project-image card-img-top">
                             <img src="images/juego python.jpg" alt="Juego de Precisión" class="project-img">
                             <div class="project-overlay">
@@ -374,14 +458,14 @@
                         </div>
                         <div class="card-footer bg-transparent border-0">
                             <div class="project-links">
-                                <a href="#" class="btn btn-primary btn-sm animate__animated animate__pulse animate__infinite">Ver Demo</a>
                                 <a href="https://github.com/nicolas2601/Aimlab-python" class="btn btn-outline-primary btn-sm"><i class="fab fa-github me-1"></i>Código</a>
+                                <button class="btn btn-outline-info btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#projectModal4"><i class="fas fa-info-circle me-1"></i><span>Detalles</span></button>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="project-item" data-aos="zoom-in" data-aos-delay="400">
-                    <div class="card project-card h-100 shadow-lg">
+                    <div class="card project-card h-100 shadow-lg" data-bs-toggle="modal" data-bs-target="#projectModal5">
                         <div class="project-image card-img-top">
                             <!-- Imagen eliminada como solicitó el usuario -->
                             <div class="project-overlay">
@@ -399,8 +483,8 @@
                         </div>
                         <div class="card-footer bg-transparent border-0">
                             <div class="project-links">
-                                <a href="#" class="btn btn-primary btn-sm">Ver Demo</a>
                                 <a href="https://github.com/nicolas2601" class="btn btn-outline-primary btn-sm"><i class="fab fa-github me-1"></i>Código</a>
+                                <button class="btn btn-outline-info btn-sm ms-2" data-bs-toggle="modal" data-bs-target="#projectModal5"><i class="fas fa-info-circle me-1"></i><span>Detalles</span></button>
                             </div>
                         </div>
                     </div>
@@ -416,7 +500,7 @@
                 <div class="col-lg-6 col-md-12 mb-4" data-aos="fade-right" data-aos-delay="100">
                     <div class="contact-info card shadow-lg p-4 h-100">
                         <h3 class="card-title animate__animated animate__fadeIn" data-i18n="contacto_hablemos">¡Hablemos!</h3>
-                        <p class="card-text">Estoy interesado en oportunidades de trabajo en desarrollo de software, backend, inteligencia artificial y ciberseguridad. Si tienes alguna pregunta o propuesta, no dudes en contactarme.</p>
+                        <p class="card-text" data-i18n="contacto_desc">Estoy interesado en oportunidades de trabajo en desarrollo de software, backend, inteligencia artificial y ciberseguridad. Si tienes alguna pregunta o propuesta, no dudes en contactarme.</p>
                         <div class="contact-details">
                             <div class="contact-item animate__animated animate__fadeInUp animate__delay-1s">
                                 <i class="fas fa-envelope text-primary"></i>
@@ -440,21 +524,25 @@
                 </div>
                 <div class="col-lg-6 col-md-12" data-aos="fade-left" data-aos-delay="200">
                     <div class="contact-form card shadow-lg p-4 h-100">
-                        <form id="contact-form">
-                            <div class="form-group">
-                                <label for="name">Nombre:</label>
-                                <input type="text" id="name" name="name" required>
+                        <form id="contact-form" class="animate__animated animate__fadeIn">
+                            <div class="form-group mb-3">
+                                <label for="contact-name" class="form-label" data-i18n="contacto_nombre">Nombre</label>
+                                <input type="text" class="form-control" id="contact-name" name="name" required>
+                                <div class="invalid-feedback" data-i18n="contacto_error_nombre">Por favor ingresa tu nombre</div>
                             </div>
-                            <div class="form-group">
-                                <label for="email">Correo electrónico:</label>
-                                <input type="email" id="email" name="email" required>
+                            <div class="form-group mb-3">
+                                <label for="contact-email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="contact-email" name="email" required>
+                                <div class="invalid-feedback" data-i18n="contacto_error_email">Por favor ingresa un email válido</div>
                             </div>
-                            <div class="form-group">
-                                <label for="message">Mensaje:</label>
-                                <textarea id="message" name="message" rows="4" required></textarea>
+                            <div class="form-group mb-4">
+                                <label for="contact-message" class="form-label" data-i18n="contacto_mensaje">Mensaje</label>
+                                <textarea class="form-control" id="contact-message" name="message" rows="4" required></textarea>
+                                <div class="invalid-feedback" data-i18n="contacto_error_mensaje">Por favor ingresa tu mensaje</div>
                             </div>
-                            <button type="submit" class="btn primary">Enviar</button>
+                            <button type="submit" class="btn primary w-100" data-i18n="contacto_enviar">Enviar Mensaje</button>
                         </form>
+                        <div id="form-message" class="mt-3" style="display: none;"></div>
                     </div>
                 </div>
             </div>
@@ -585,9 +673,7 @@
         });
     </script>
     
-    <!-- Translations -->
-    <script src="translations.js"></script>
-    
+
     <!-- Custom JS -->
     <script src="script.js"></script>
     
@@ -603,5 +689,252 @@
             }
         });
     </script>
+
+    <!-- Modales de Proyectos -->
+    <!-- Modal Proyecto 1: Aplicación de Mindfulness -->
+    <div class="modal fade" id="projectModal1" tabindex="-1" aria-labelledby="projectModal1Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModal1Label">Aplicación de Mindfulness</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div id="carouselModal1" class="carousel slide" data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active">
+                                        <img src="images/mindfulnes 1.jpg" class="d-block w-100" alt="Mindfulness App 1">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="images/mindfulnes 2.jpg" class="d-block w-100" alt="Mindfulness App 2">
+                                    </div>
+                                    <div class="carousel-item">
+                                        <img src="images/mindfulnes 3.jpg" class="d-block w-100" alt="Mindfulness App 3">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#carouselModal1" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Anterior</span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#carouselModal1" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                    <span class="visually-hidden">Siguiente</span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Descripción</h4>
+                            <p>Aplicación móvil diseñada para mejorar la salud mental de los usuarios a través de ejercicios de mindfulness, meditación guiada y seguimiento del progreso personal.</p>
+                            
+                            <h4>Características principales</h4>
+                            <ul>
+                                <li>Interfaz de usuario intuitiva y relajante</li>
+                                <li>Meditaciones guiadas con temporizador personalizable</li>
+                                <li>Seguimiento de progreso y estadísticas personales</li>
+                                <li>Recordatorios diarios configurables</li>
+                                <li>Modo offline para usar sin conexión a internet</li>
+                            </ul>
+                            
+                            <h4>Tecnologías utilizadas</h4>
+                            <div class="project-tech mb-3">
+                                <span class="badge bg-primary">Kotlin</span>
+                                <span class="badge bg-secondary">Jetpack Compose</span>
+                                <span class="badge bg-info">Android Studio</span>
+                                <span class="badge bg-success">Room Database</span>
+                                <span class="badge bg-warning text-dark">Material Design</span>
+                            </div>
+                            
+                            <a href="https://github.com/nicolas2601/yourJourney" class="btn btn-primary" target="_blank">
+                                <i class="fab fa-github me-2"></i>Ver código en GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Proyecto 2: Portafolio Profesional -->
+    <div class="modal fade" id="projectModal2" tabindex="-1" aria-labelledby="projectModal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModal2Label">Portafolio Profesional</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="images/Portafolio.jpg" class="img-fluid rounded" alt="Portafolio Profesional">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Descripción</h4>
+                            <p>Desarrollo de un portafolio web profesional con diseño responsivo y animaciones interactivas para mostrar mis proyectos, habilidades y experiencia profesional.</p>
+                            
+                            <h4>Características principales</h4>
+                            <ul>
+                                <li>Diseño responsivo para todos los dispositivos</li>
+                                <li>Animaciones y transiciones fluidas</li>
+                                <li>Soporte multilenguaje (Español/Inglés)</li>
+                                <li>Formulario de contacto funcional</li>
+                                <li>Optimización SEO</li>
+                            </ul>
+                            
+                            <h4>Tecnologías utilizadas</h4>
+                            <div class="project-tech mb-3">
+                                <span class="badge bg-primary">HTML5</span>
+                                <span class="badge bg-secondary">CSS3</span>
+                                <span class="badge bg-info">JavaScript</span>
+                                <span class="badge bg-success">Bootstrap</span>
+                                <span class="badge bg-warning text-dark">AOS</span>
+                                <span class="badge bg-danger">EmailJS</span>
+                            </div>
+                            
+                            <a href="https://github.com/nicolas2601/MY_WEB" class="btn btn-primary" target="_blank">
+                                <i class="fab fa-github me-2"></i>Ver código en GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Proyecto 3: Gestión de Horas Libres -->
+    <div class="modal fade" id="projectModal3" tabindex="-1" aria-labelledby="projectModal3Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModal3Label">Gestión de Horas Libres Universitarias</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="images/Java_Horas libres.jpg" class="img-fluid rounded" alt="Gestión de Horas Libres">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Descripción</h4>
+                            <p>Sistema desarrollado en Java para la optimización de tiempos y recursos en universidades, permitiendo gestionar eficientemente los espacios y horarios disponibles.</p>
+                            
+                            <h4>Características principales</h4>
+                            <ul>
+                                <li>Gestión de aulas y espacios universitarios</li>
+                                <li>Asignación automática de horarios</li>
+                                <li>Sistema de reservas para estudiantes y profesores</li>
+                                <li>Reportes y estadísticas de uso</li>
+                                <li>Interfaz de usuario intuitiva</li>
+                            </ul>
+                            
+                            <h4>Tecnologías utilizadas</h4>
+                            <div class="project-tech mb-3">
+                                <span class="badge bg-danger">Java</span>
+                                <span class="badge bg-success">MySQL</span>
+                                <span class="badge bg-warning text-dark">UX/UI Design</span>
+                                <span class="badge bg-info">JDBC</span>
+                                <span class="badge bg-secondary">Swing</span>
+                            </div>
+                            
+                            <a href="https://github.com/nicolas2601/HorasLibresUnab" class="btn btn-primary" target="_blank">
+                                <i class="fab fa-github me-2"></i>Ver código en GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Proyecto 4: Juego de Precisión -->
+    <div class="modal fade" id="projectModal4" tabindex="-1" aria-labelledby="projectModal4Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModal4Label">Juego de Precisión tipo 'Aimlabs'</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="images/juego python.jpg" class="img-fluid rounded" alt="Juego de Precisión">
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Descripción</h4>
+                            <p>Creación de un juego tipo 'Aimlabs' en Python para mejorar la precisión y reflejos, diseñado para jugadores que buscan mejorar su puntería en juegos FPS.</p>
+                            
+                            <h4>Características principales</h4>
+                            <ul>
+                                <li>Diferentes modos de entrenamiento</li>
+                                <li>Sistema de puntuación y estadísticas</li>
+                                <li>Dificultad progresiva adaptativa</li>
+                                <li>Interfaz minimalista y funcional</li>
+                                <li>Seguimiento de mejora a lo largo del tiempo</li>
+                            </ul>
+                            
+                            <h4>Tecnologías utilizadas</h4>
+                            <div class="project-tech mb-3">
+                                <span class="badge bg-success">Python</span>
+                                <span class="badge bg-info">Pygame</span>
+                                <span class="badge bg-dark">Game Design</span>
+                                <span class="badge bg-primary">NumPy</span>
+                                <span class="badge bg-secondary">Matplotlib</span>
+                            </div>
+                            
+                            <a href="https://github.com/nicolas2601/Aimlab-python" class="btn btn-primary" target="_blank">
+                                <i class="fab fa-github me-2"></i>Ver código en GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Proyecto 5: Proyectos de Bases de Datos -->
+    <div class="modal fade" id="projectModal5" tabindex="-1" aria-labelledby="projectModal5Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectModal5Label">Proyectos de Bases de Datos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 d-flex align-items-center justify-content-center">
+                            <i class="fas fa-database fa-8x text-primary mb-4"></i>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Descripción</h4>
+                            <p>Implementación de bases de datos relacionales usando MySQL para la gestión de información en diversos sistemas, con enfoque en la optimización y seguridad.</p>
+                            
+                            <h4>Características principales</h4>
+                            <ul>
+                                <li>Diseño de esquemas de bases de datos normalizados</li>
+                                <li>Implementación de procedimientos almacenados y triggers</li>
+                                <li>Optimización de consultas para alto rendimiento</li>
+                                <li>Sistemas de respaldo y recuperación</li>
+                                <li>Implementación de medidas de seguridad</li>
+                            </ul>
+                            
+                            <h4>Tecnologías utilizadas</h4>
+                            <div class="project-tech mb-3">
+                                <span class="badge bg-primary">MySQL</span>
+                                <span class="badge bg-secondary">Diseño de BD</span>
+                                <span class="badge bg-info">Optimización</span>
+                                <span class="badge bg-success">SQL</span>
+                                <span class="badge bg-warning text-dark">phpMyAdmin</span>
+                            </div>
+                            
+                            <a href="https://github.com/nicolas2601" class="btn btn-primary" target="_blank">
+                                <i class="fab fa-github me-2"></i>Ver código en GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

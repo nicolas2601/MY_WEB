@@ -1,0 +1,222 @@
+/* Nuevos estilos para las tarjetas de experiencia y educación */
+.experience-cards, .education-cards {
+    margin-top: 30px;
+}
+
+.experience-card, .education-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--card-shadow);
+    border-top: 5px solid var(--primary-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover, .education-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--hover-shadow);
+}
+
+.experience-icon, .education-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background-color: rgba(74, 108, 247, 0.1);
+    border-radius: 50%;
+    color: var(--primary-color-dark);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.company-name, .institution-name {
+    color: var(--primary-color-dark);
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.period {
+    font-weight: normal;
+    background-color: var(--primary-color-dark);
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    color: white;
+}
+
+.feature-list {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 20px;
+}
+
+.feature-list li {
+    margin-bottom: 12px;
+    padding: 8px 0;
+    border-bottom: 1px dashed rgba(0,0,0,0.1);
+    display: flex;
+    align-items: flex-start;
+}
+
+.feature-list li:last-child {
+    border-bottom: none;
+}
+
+.feature-list li i {
+    margin-top: 3px;
+}
+
+/* Estilos para los logos de tecnologías */
+.tech-logos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 15px;
+    justify-content: center;
+}
+
+.tech-logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.tech-logo:hover {
+    transform: translateY(-3px);
+}
+
+.tech-logo img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 8px;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.tech-logo span {
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 3px;
+}
+
+.tech-logo .skill-bar {
+    width: 60px;
+    height: 4px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 3px;
+}
+
+.language-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #4a6cf7;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+/* Barra de habilidades moderna */
+.skill-bar-modern {
+    width: 100%;
+    height: 6px;
+    background: #e9ecef;
+    border-radius: 3px;
+    overflow: hidden;
+    margin: 6px 0 4px 0;
+    box-shadow: 0 1px 4px rgba(74,108,247,0.05);
+}
+.skill-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
+    border-radius: 3px;
+    transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.skill-name-modern {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--primary-color-dark);
+    margin-bottom: 2px;
+    text-align: left;
+}
+
+/* Mejoras para las tarjetas de habilidades */
+.skill-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.skill-icon {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-icon {
+    transform: scale(1.1);
+}
+
+.skill-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+
+/* Estilos para los modales de proyectos */
+.modal-content {
+    background-color: var(--background-light);
+    color: var(--text-light);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+
+/* Estilos para los botones de detalles en proyectos */
+.btn-outline-info, .btn-outline-primary {
+    color: var(--primary-light);
+    border-color: var(--primary-light);
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    white-space: nowrap;
+}
+
+.btn-outline-info:hover, .btn-outline-primary:hover {
+    background-color: var(--primary-light);
+    color: var(--text-dark);
+}
+
+.project-links {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+}

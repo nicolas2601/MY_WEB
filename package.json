@@ -1,0 +1,12 @@
+{
+  "name": "my_web_project",
+  "version": "1.0.0",
+  "description": "Proyecto de portafolio con chatbot y otras funcionalidades.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "live-server"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  }
+}

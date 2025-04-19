@@ -1,5 +1,6 @@
 // Archivo de traducciones para el portafolio
-const translations = {
+window.translations = {
+// Default language
     es: {
         // Navegación
         nav_inicio: "Inicio",
