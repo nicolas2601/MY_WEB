@@ -69,21 +69,8 @@
 .chatbot-header button {
     background: transparent;
     border: none;
-    color: white;
-    cursor: pointer;
-}
-
-/* Cuerpo del chatbot donde aparecen los mensajes */
-.chatbot-body {
-    flex: 1;
-    padding: 15px;
-    overflow-y: auto;
-    background-color: #f5f7fb;
-}
-
-/* Estilos para los mensajes */
-.message {
-    margin-bottom: 15px;
+    color: whne;hatbot-body {
+padding: 15px;
     display: flex;
     flex-direction: column;
     max-width: 80%;
@@ -191,4 +178,6 @@
     .message {
         max-width: 90%;
     }
-}
+} /* End of media query */
+/* Fix for missing closing brace in media query */
+} /* End of media query */
